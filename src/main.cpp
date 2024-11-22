@@ -2,6 +2,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+//test
+
 int main() {
     // Initialize GLFW
     if (!glfwInit()) {
