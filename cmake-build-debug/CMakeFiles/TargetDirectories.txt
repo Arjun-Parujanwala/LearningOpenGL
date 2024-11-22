@@ -1,3 +1,4 @@
 /Users/arjunparujanwala/CLionProjects/LearningOpenGL/cmake-build-debug/CMakeFiles/LearningOpenGL.dir
+/Users/arjunparujanwala/CLionProjects/LearningOpenGL/cmake-build-debug/CMakeFiles/glad.dir
 /Users/arjunparujanwala/CLionProjects/LearningOpenGL/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/arjunparujanwala/CLionProjects/LearningOpenGL/cmake-build-debug/CMakeFiles/rebuild_cache.dir

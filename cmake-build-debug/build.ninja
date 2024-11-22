@@ -47,12 +47,12 @@ cmake_ninja_workdir = /Users/arjunparujanwala/CLionProjects/LearningOpenGL/cmake
 #############################################
 # Order-only phony target for LearningOpenGL
 
-build cmake_object_order_depends_target_LearningOpenGL: phony || .
+build cmake_object_order_depends_target_LearningOpenGL: phony || cmake_object_order_depends_target_glad
 
 build CMakeFiles/LearningOpenGL.dir/src/main.cpp.o: CXX_COMPILER__LearningOpenGL_unscanned_Debug /Users/arjunparujanwala/CLionProjects/LearningOpenGL/src/main.cpp || cmake_object_order_depends_target_LearningOpenGL
   DEP_FILE = CMakeFiles/LearningOpenGL.dir/src/main.cpp.o.d
-  FLAGS = -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=15.0 -fcolor-diagnostics
-  INCLUDES = -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/System/Library/Frameworks -isystem /opt/homebrew/include
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=15.0 -fcolor-diagnostics
+  INCLUDES = -I/Users/arjunparujanwala/CLionProjects/LearningOpenGL/include -iframework /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/System/Library/Frameworks -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/LearningOpenGL.dir
   OBJECT_FILE_DIR = CMakeFiles/LearningOpenGL.dir/src
 
@@ -64,14 +64,47 @@ build CMakeFiles/LearningOpenGL.dir/src/main.cpp.o: CXX_COMPILER__LearningOpenGL
 #############################################
 # Link the executable LearningOpenGL
 
-build LearningOpenGL: CXX_EXECUTABLE_LINKER__LearningOpenGL_Debug CMakeFiles/LearningOpenGL.dir/src/main.cpp.o | /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/System/Library/Frameworks/OpenGL.framework /opt/homebrew/lib/libglfw.3.4.dylib
+build LearningOpenGL: CXX_EXECUTABLE_LINKER__LearningOpenGL_Debug CMakeFiles/LearningOpenGL.dir/src/main.cpp.o | /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk/System/Library/Frameworks/OpenGL.framework /opt/homebrew/lib/libglfw.3.4.dylib libglad.a || libglad.a
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=15.0
-  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  -framework OpenGL  /opt/homebrew/lib/libglfw.3.4.dylib
+  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  -framework OpenGL  /opt/homebrew/lib/libglfw.3.4.dylib  libglad.a
   OBJECT_DIR = CMakeFiles/LearningOpenGL.dir
   POST_BUILD = :
   PRE_LINK = :
   TARGET_FILE = LearningOpenGL
   TARGET_PDB = LearningOpenGL.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Order-only phony target for glad
+
+build cmake_object_order_depends_target_glad: phony || .
+
+build CMakeFiles/glad.dir/src/glad.c.o: C_COMPILER__glad_unscanned_Debug /Users/arjunparujanwala/CLionProjects/LearningOpenGL/src/glad.c || cmake_object_order_depends_target_glad
+  DEP_FILE = CMakeFiles/glad.dir/src/glad.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=15.0 -fcolor-diagnostics
+  INCLUDES = -I/Users/arjunparujanwala/CLionProjects/LearningOpenGL/include
+  OBJECT_DIR = CMakeFiles/glad.dir
+  OBJECT_FILE_DIR = CMakeFiles/glad.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glad
+
+
+#############################################
+# Link the static library libglad.a
+
+build libglad.a: C_STATIC_LIBRARY_LINKER__glad_Debug CMakeFiles/glad.dir/src/glad.c.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.1.sdk -mmacosx-version-min=15.0
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles/glad.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libglad.a
+  TARGET_PDB = glad.a.dbg
 
 
 #############################################
@@ -99,6 +132,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build glad: phony libglad.a
+
 # =============================================================================
 # Folder targets.
 
@@ -107,7 +142,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/arjunparujanwala/CLionProjects/LearningOpenGL/cmake-build-debug
 
-build all: phony LearningOpenGL
+build all: phony LearningOpenGL libglad.a
 
 # =============================================================================
 # Built-in targets
