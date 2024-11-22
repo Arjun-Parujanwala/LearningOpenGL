@@ -2,7 +2,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-//test
+//twhat is going on
 
 int main() {
     // Initialize GLFW
